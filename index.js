@@ -69,7 +69,7 @@ function highlightButtonOnClick(){
 function stopHighlightingButtons(){
   soundButtons.each(function(){
     if ($(this).hasClass('active')){
-      $(this).removeClass('active')
+      $(this).removeClass('active');
     }
   })
 }
