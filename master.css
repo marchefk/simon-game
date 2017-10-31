@@ -10,19 +10,35 @@
 }
 
 .button-red {
-  background-color: red;
+  background-color: #c2260a;
+}
+
+.button-red.active {
+  background-color:  #ff361a;
 }
 
 .button-blue {
-  background-color: blue;
+  background-color: #0092b3;
+}
+
+.button-blue.active {
+  background-color:  #17c6ff;
 }
 
 .button-yellow {
-  background-color: yellow;
+  background-color: #e6b800;
+}
+
+.button-yellow.active {
+  background-color: #ffff00;
 }
 
 .button-green {
-  background-color: green;
+  background-color: #00b386;
+}
+
+.button-green.active {
+  background-color:  #04ffc0;
 }
 
 .button-start {
