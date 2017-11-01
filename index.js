@@ -5,7 +5,7 @@ var Game = {
   addSound: function() {
     this.soundChain.push(makeRandomSound());
   },
-  playSounds,
+  playSounds
 }
 
 var currentGame;
@@ -24,22 +24,17 @@ var sounds = {
 
 var clickedSound;
 var howManyUserSounds = 0;
-var newClick = false;
 
 var newGameButton = $('.button-start');
 newGameButton.on('click', createNewGame);
 
 var soundButtons = $('.sound-button');
 soundButtons.on('click', getSoundFromUser);
-soundButtons.on('click', playClickedButtonSound);
+soundButtons.on('mousedown', playClickedButtonSound);
 soundButtons.on('click', stopHighlightingButtons);
-soundButtons.on('click', highlightButtonOnClick);
-soundButtons.on('click', function(){
-  setTimeout(stopHighlightingButtons, 900);    /// to do
-});
 soundButtons.on('click', function(){
   if(isMatchingSound()){
-    if(checkArraysLength()){
+    if(canAddNewSound()){
       howManyUserSounds = 0;
       currentGame.addSound();
       setTimeout(function(){currentGame.playSounds();}, 1500);
@@ -62,10 +57,6 @@ function highlightButton(id){
   $(`#${id}`).addClass('active');
 }
 
-function highlightButtonOnClick(){
-  highlightButton(this.getAttribute('id'));
-}
-
 function stopHighlightingButtons(){
   soundButtons.each(function(){
     if ($(this).hasClass('active')){
@@ -74,7 +65,7 @@ function stopHighlightingButtons(){
   })
 }
 
-function checkArraysLength(){
+function canAddNewSound(){
   if (howManyUserSounds == currentGame.soundChain.length){
     return true;
   } else {
@@ -83,7 +74,6 @@ function checkArraysLength(){
 }
 
 function isMatchingSound() {
-  console.log(`comparing ${clickedSound} and ${currentGame.soundChain[howManyUserSounds-1]}`);
     if (clickedSound == currentGame.soundChain[howManyUserSounds-1]) {
       return true;
     } else {
@@ -98,9 +88,9 @@ function playSounds() {
       sounds[currentGame.soundChain[i]].play();
       highlightButton(currentGame.soundChain[i]);
       if (i == currentGame.soundChain.length-1){
-        setTimeout(stopHighlightingButtons, 1000);
+        setTimeout(stopHighlightingButtons, 900);
       }
-    }, i * 900);
+    }, i * 850);
   }
 }
 
@@ -117,7 +107,12 @@ function getSoundFromUser() {
   }
 }
 
+function enableButtons(){
+  soundButtons.removeAttr('disabled');
+}
+
 function createNewGame() {
+  enableButtons();
   var newGame = Object.assign(Object.create(Game));
   newGame.startNewGame();
   currentGame = newGame;
