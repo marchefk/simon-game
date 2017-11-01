@@ -108,7 +108,7 @@ function getSoundFromUser() {
 }
 
 function enableButtons(){
-  soundButtons.removeAttr('disabled');
+  soundButtons.removeAttr('disabled');  ///////////////////// to do
 }
 
 function createNewGame() {
