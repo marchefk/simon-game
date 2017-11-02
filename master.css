@@ -13,7 +13,7 @@
   background-color: #c2260a;
 }
 
-.button-red.active, .button-red:active {
+.button-red.active, .button-red.enabled:active {
   background-color:  #ff361a;
 }
 
@@ -21,7 +21,7 @@
   background-color: #0092b3;
 }
 
-.button-blue.active, .button-blue:active {
+.button-blue.active, .button-blue.enabled:active {
   background-color:  #17c6ff;
 }
 
@@ -29,7 +29,7 @@
   background-color: #e6b800;
 }
 
-.button-yellow.active, .button-yellow:active {
+.button-yellow.active, .button-yellow.enabled:active {
   background-color: #ffff00;
 }
 
@@ -37,7 +37,7 @@
   background-color: #00b386;
 }
 
-.button-green.active, .button-green:active {
+.button-green.active, .button-green.enabled:active {
   background-color:  #04ffc0;
 }
 

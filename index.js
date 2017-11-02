@@ -23,7 +23,7 @@ var sounds = {
 }
 
 var clickedSound;
-var howManyUserSounds = 0;
+var howManyUserSounds;
 
 var newGameButton = $('.button-start');
 newGameButton.on('click', createNewGame);
@@ -48,7 +48,20 @@ soundButtons.on('click', function(){
 
 ///// to do:
 
+function getScore(){
+  return howManyUserSounds;
+}
+
+function diableButtons(){
+  soundButtons.each(function(){
+    if($(this).hasClass('enabled')){
+      $(this).removeClass('enabled');
+    }
+  })
+}
+
 function resetLostGame(){
+  diableButtons();
   currentGame.soundChain = [];
   howManyUserSounds = 0;
 }
@@ -95,7 +108,7 @@ function playSounds() {
 }
 
 function playClickedButtonSound() {
-  if (currentGame) {
+  if (currentGame && soundButtons.hasClass('enabled')) {
     sounds[this.getAttribute('id')].play();
   }
 }
@@ -108,10 +121,11 @@ function getSoundFromUser() {
 }
 
 function enableButtons(){
-  soundButtons.removeAttr('disabled');  ///////////////////// to do
+  soundButtons.addClass('enabled');
 }
 
 function createNewGame() {
+  howManyUserSounds = 0;
   enableButtons();
   var newGame = Object.assign(Object.create(Game));
   newGame.startNewGame();
