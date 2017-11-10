@@ -10,10 +10,10 @@ var Game = {
 
 var currentGame;
 
-var audioBlue = new Audio('/audio/simonSound1.mp3');
-var audioGreen = new Audio('/audio/simonSound2.mp3');
-var audioRed = new Audio('/audio/simonSound3.mp3');
-var audioYellow = new Audio('/audio/simonSound4.mp3');
+var audioBlue = new Audio('/simon-game/audio/simonSound1.mp3');
+var audioGreen = new Audio('/simon-game/audio/simonSound2.mp3');
+var audioRed = new Audio('/simon-game/audio/simonSound3.mp3');
+var audioYellow = new Audio('/simon-game/audio/simonSound4.mp3');
 
 var sounds = {
   "blue": audioBlue,
