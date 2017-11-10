@@ -24,6 +24,7 @@ var sounds = {
 
 var clickedSound;
 var howManyUserSounds;
+var highestScore;
 
 var newGameButton = $('.button-start');
 newGameButton.on('click', createNewGame);
@@ -35,11 +36,17 @@ soundButtons.on('click', stopHighlightingButtons);
 soundButtons.on('click', function(){
   if(isMatchingSound()){
     if(canAddNewSound()){
+      disableButtons();
+      saveHighestScore();
       howManyUserSounds = 0;
       currentGame.addSound();
       setTimeout(function(){currentGame.playSounds();}, 1500);
+      enableButtons();
     }
   }else{
+    if(currentGame){
+    displayScore();
+  }
     resetLostGame();
   }
 }
@@ -47,12 +54,23 @@ soundButtons.on('click', function(){
 
 
 ///// to do:
-
-function getScore(){
-  return howManyUserSounds;
+function displayScore(){
+  $('#score-container').html(`Your score: ${highestScore}`);
 }
 
-function diableButtons(){
+function saveHighestScore(){
+  highestScore = howManyUserSounds;
+}
+
+function areButtonsEnabled(){
+  if (soundButtons.hasClass('enabled')){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function disableButtons(){
   soundButtons.each(function(){
     if($(this).hasClass('enabled')){
       $(this).removeClass('enabled');
@@ -61,8 +79,7 @@ function diableButtons(){
 }
 
 function resetLostGame(){
-  diableButtons();
-  currentGame.soundChain = [];
+  disableButtons();
   howManyUserSounds = 0;
 }
 
@@ -101,20 +118,20 @@ function playSounds() {
       sounds[currentGame.soundChain[i]].play();
       highlightButton(currentGame.soundChain[i]);
       if (i == currentGame.soundChain.length-1){
-        setTimeout(stopHighlightingButtons, 900);
+        setTimeout(stopHighlightingButtons, 800);
       }
     }, i * 850);
   }
 }
 
 function playClickedButtonSound() {
-  if (currentGame && soundButtons.hasClass('enabled')) {
+  if (currentGame && areButtonsEnabled()) {
     sounds[this.getAttribute('id')].play();
   }
 }
 
 function getSoundFromUser() {
-  if (currentGame) {
+  if (currentGame && areButtonsEnabled()) {
     clickedSound = this.getAttribute('id');
     howManyUserSounds += 1;
   }
@@ -126,6 +143,7 @@ function enableButtons(){
 
 function createNewGame() {
   howManyUserSounds = 0;
+  highestScore = 0;
   enableButtons();
   var newGame = Object.assign(Object.create(Game));
   newGame.startNewGame();

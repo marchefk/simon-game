@@ -1,16 +1,29 @@
 .main-container {
-  height: 50%;
-  width: 50%;
-  color: white;
+  height: 400px;
+  width: 400px;
+  background-color: black;
 }
 
-.button {
-  width: 40px;
-  height: 30px;
+.game-container {
+  height: 70%;
+  width: 70%;
+  margin: auto;
+  padding: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sound-button {
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 10%;
 }
 
 .button-red {
-  background-color: #c2260a;
+  background-color: #af280f;
 }
 
 .button-red.active, .button-red.enabled:active {
@@ -18,7 +31,7 @@
 }
 
 .button-blue {
-  background-color: #0092b3;
+  background-color: #016e87;
 }
 
 .button-blue.active, .button-blue.enabled:active {
@@ -26,7 +39,7 @@
 }
 
 .button-yellow {
-  background-color: #e6b800;
+  background-color: #c9a206;
 }
 
 .button-yellow.active, .button-yellow.enabled:active {
@@ -34,17 +47,17 @@
 }
 
 .button-green {
-  background-color: #00b386;
+  background-color: #01965f;
 }
 
 .button-green.active, .button-green.enabled:active {
-  background-color:  #04ffc0;
+  background-color:  #00fc9f;
 }
 
 .button-start {
   height: 0px;
   width: 0px;
-  border: 30px solid transparent;
-  border-left: 30px solid red;
+  border: 20px solid transparent;
+  border-left: 30px solid grey;
   background color: transparent;
 }
