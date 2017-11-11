@@ -1,15 +1,17 @@
 html, body {
   height: 100%;
-  background-color: #131414;
+  background: #222325 url('/simon-game/img/navy_blue.png');
 }
 
 .main-container {
   height: 100%;
   width: 100%;
-  background-color: #212223;
-  -webkit-box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
--moz-box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
-box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #0d0d0e), color-stop(50, #222529), color-stop(100, #0d0d0e));
+    background-image: -webkit-linear-gradient(bottom left, #0d0d0e 0%, #222529 50%, #0d0d0e 100%);
+    background-image: linear-gradient(to top right, #0d0d0e 0%, #222529 50%, #0d0d0e 100%);
+  -webkit-box-shadow: 0px 5px 41px -6px rgba(4, 8, 15, 0.83), inset 0px 0px 36px -4px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 5px 41px -6px rgba(4, 8, 15, 0.83), inset 0px 0px 36px -4px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 10px 38px 2px rgba(0, 0, 0, 0.83), inset 0px 0px 36px -4px rgba(0, 0, 0, 0.8);
 }
 
 @media (min-width: 850px) {
@@ -39,9 +41,9 @@ box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
   width: 120px;
   height: 120px;
   border-radius: 10%;
-  -webkit-box-shadow: 0px 0px 60px -22px rgba(1,1,5,1), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
-  -moz-box-shadow: 0px 0px 60px -22px rgba(1,1,5,1), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
-  box-shadow: 0px 0px 60px -22px rgba(1,1,5,1), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
+  -webkit-box-shadow: 0px 6px 24px -3px rgba(0, 0, 0, 0.75), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
+  -moz-box-shadow: 0px 6px 24px -3px rgba(0, 0, 0, 0.75), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
+  box-shadow: 0px 6px 24px -3px rgba(0, 0, 0, 0.75), inset 0px -6px 63px -5px rgba(1, 1, 5, 1);
 }
 
 .button-red {
@@ -50,6 +52,7 @@ box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
 
 .button-red.active, .button-red.enabled:active {
   background-color: #ff361a;
+  box-shadow: 0px 0px 119px -25px rgba(255, 54, 26, 0.75), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
 }
 
 .button-blue {
@@ -58,6 +61,7 @@ box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
 
 .button-blue.active, .button-blue.enabled:active {
   background-color: #17c6ff;
+  box-shadow: 0px 0px 119px -25px rgba(23, 198, 255, 0.75), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
 }
 
 .button-yellow {
@@ -66,6 +70,7 @@ box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
 
 .button-yellow.active, .button-yellow.enabled:active {
   background-color: #ffff00;
+  box-shadow: 0px 0px 119px -25px rgba(255, 255, 0, 0.75), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
 }
 
 .button-green {
@@ -74,6 +79,7 @@ box-shadow: inset 0px 0px 36px -4px rgba(0,0,0,0.8);
 
 .button-green.active, .button-green.enabled:active {
   background-color: #00fc9f;
+  box-shadow: 0px 0px 119px -25px rgba(0, 252, 159, 0.75), inset 0px 0px 63px -5px rgba(1, 1, 5, 1);
 }
 
 .button-start {
