@@ -55,7 +55,7 @@ soundButtons.on('click', function(){
 
 ///// to do:
 function displayScore(){
-  $('#score-container').html(`Your score: ${highestScore}`);
+  $('#score-points').html(`You scored: ${highestScore}`);
 }
 
 function saveHighestScore(){
@@ -142,6 +142,7 @@ function enableButtons(){
 }
 
 function createNewGame() {
+  $('#score-points').html('');
   howManyUserSounds = 0;
   highestScore = 0;
   enableButtons();
